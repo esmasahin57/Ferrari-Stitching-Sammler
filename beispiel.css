@@ -1,0 +1,544 @@
+/* Basis-Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Mobile First: Grundstruktur */
+body {
+  font-family: 'Open Sans', sans-serif;
+  letter-spacing: 0.05em;
+}
+
+h1, h2, h3, .offcanvas-menu, .card-front {
+  font-weight: 900;
+  font-size: 2rem;
+  font-family: 'Orbitron', sans-serif;
+}
+
+p {
+  font-weight: normal;
+}
+
+/* Hero-Sektion */
+.hero {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  height: 100vh;
+  text-align: center;
+  color: white;
+}
+
+.hero-logo {
+  position: fixed;
+  top: 0.2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  height: 85px; 
+  z-index: 5;
+}
+
+.hero-image {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+  z-index: 0;
+}
+
+.hero-image.active {
+  opacity: 1;
+  z-index: 1;
+}
+
+@keyframes fadeSlideshow {
+  0%, 100%   { opacity: 0; }
+  8%, 30%    { opacity: 1; }
+}
+
+/* Titel im Hero */
+.hero-title {
+  position: static;
+  margin-top: 30rem;
+  z-index: 2;
+  color: white;
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: bold;
+  text-shadow: 0 0 8px rgba(0, 0, 0, 0.6);
+  white-space: nowrap;
+  transition: transform 0.1s ease-out;
+}
+
+.hero-subtitle {
+  position: absolute;
+  top: 38rem; /* oder je nach Wunsch anpassen */
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+  color: white;
+  font-size: 1rem;
+  font-weight: 100;
+  text-shadow: 0 0 8px rgba(0, 0, 0, 0.6);
+}
+
+.hero-heading {
+  font-family: 'Orbitron', sans-serif; /* oder jede gewünschte Schriftart */
+  font-size: 1.6rem;
+  text-transform: uppercase;
+  display: block;
+  margin-bottom: 1rem;
+}
+
+.hero-section {
+  background: black;
+  color: white;
+  padding: 4rem 2rem;
+  text-align: center;
+}
+
+.hero-content p {
+  font-size: 1.2rem;
+  line-height: 1.8;
+  max-width: 700px;
+  margin: 0 auto;
+  letter-spacing: 0.3px;
+}
+
+
+/* Menübutton */
+.menu-toggle {
+  position: fixed;
+  top: 1.5rem;
+  right: 1.5rem;
+  z-index: 1001;
+  background: none;
+  border: none;
+  color: white;
+  font-size: 2rem;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  text-shadow: 0 0 5px rgba(0,0,0,0.5);
+}
+
+.close-menu {
+  position: fixed;
+  top: 1.5rem;
+  right: 1.5rem;
+  z-index: 1001;
+  background: none;
+  border: none;
+  color: white;
+  font-size: 2rem;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  text-shadow: 0 0 5px rgba(0,0,0,0.5);
+}
+
+/* Offcanvas Menü */
+.offcanvas-menu {
+  position: fixed;
+  top: 0;
+  right: -100%;
+  width: 80%;
+  height: 100%;
+  background: #111;
+  color: white;
+  transition: right 0.3s ease-in-out;
+  z-index: 100;
+  padding: 2rem 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.offcanvas-menu.open {
+  right: 0;
+}
+
+.offcanvas-logo {
+  width: 125px;
+  margin-bottom: 2rem;
+}
+
+.offcanvas-menu ul {
+  list-style: none;
+  padding: 0;
+  text-align: center;
+  width: 100%;
+}
+
+.offcanvas-menu li {
+  margin: 1.5rem 0;
+}
+.offcanvas-menu a {
+  color: white;
+  text-decoration: none;
+  font-size: 1.5rem;
+}
+
+.offcanvas-menu a:hover {
+  color: #ff0000;
+}
+
+.offcanvas-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 99;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.offcanvas-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Menü schließen Button */
+.close-menu {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: none;
+  border: none;
+  color: white;
+  font-size: 2rem;
+  cursor: pointer;
+}
+
+.hero::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 14%; /* Nur oberer Bereich */
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.8), transparent);
+  z-index: 1;
+  pointer-events: none;
+}
+
+
+/* Section Layout */
+.section {
+  padding: 3rem 2rem;
+}
+
+.section img {
+  width: 50%;
+  height: auto;
+  margin-top: 1rem;
+}
+
+.section-content {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-top: 1.5rem;
+}
+
+.section-content img {
+  width: 45%;
+  height: auto;
+  max-width: 100%;
+}
+
+.section-content p {
+  flex: 1;
+  font-size: 1rem;
+  line-height: 2;
+}
+
+/* Ästhetik Galerie */
+.grid-gallery {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+.grid-gallery img {
+  width: 100%;
+  transition: opacity 1s ease-in-out;
+}
+
+.usp-section {
+  padding: 2rem 1rem;
+  background: #f9f9f9;
+}
+
+/* USP Flip Cards */
+.usp-grid {
+  display: flex;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+  padding: 2rem 1rem;
+  padding: 2rem 1rem;
+  display: flex;
+  justify-content: center; /* zentriert horizontal */
+  flex-wrap: wrap; /* Falls mehr Karten, auf mehrere Reihen verteilen */
+}
+
+@media (min-width: 768px) {
+  .usp-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.usp-card {
+  perspective: 1000px;
+  width: 300px;
+  height: 120px;
+  cursor: pointer;
+}
+
+.usp-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transition: transform 0.6s;
+  transition: transform 0.8s cubic-bezier(0.4, 0.2, 0.2, 1);
+}
+
+.usp-card.flip .usp-card-inner {
+  transform: rotateY(180deg);
+}
+
+/* Nur Hover auf Geräten mit Maus */
+@media (hover: hover) {
+  .usp-card:hover .usp-card-inner {
+    transform: rotateY(180deg);
+  }
+}
+
+.card-front,
+.card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 1rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.card-front {
+  font-weight: bold;
+  font-size: 1.5rem;
+  background: linear-gradient(135deg, #d00000, #ff3b3b);
+  color: white;
+}
+
+.card-back {
+  font-size: 1rem;
+  background: linear-gradient(135deg, #111, #444);
+  color: white;
+  transform: rotateY(180deg);
+}
+
+
+/* Call-to-action Button */
+.cta-button {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 1rem;
+  display: block;
+  margin: 2rem auto;
+  padding: 1rem 2rem;
+  background: rgb(0, 0, 0);
+  color: rgb(217,217,217);
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+  transition: background 0.3s ease;
+}
+
+.cta-button:hover {
+  background: #ff0000;
+}
+
+
+/* Footer */
+.footer {
+  font-family: 'Orbitron', sans-serif;
+  background: #3f3f3f;
+  color: white;
+  padding: 2rem 1rem;
+  text-align: center;
+}
+.footer ul {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 1rem;
+}
+.footer li {
+  margin: 0.5rem 0;
+}
+.footer a {
+  color: white;
+  text-decoration: none;
+}
+.footer a:hover {
+  color: #ff0000;
+}
+
+.aesthetik-scroll-section {
+  height: 400vh; /* = 4 Bilder → 1 Bildschirmhöhe pro Bild */
+  position: relative;
+}
+
+.sticky-carousel {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.carousel-image {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 0.6s ease;
+}
+
+.carousel-image.active {
+  opacity: 1;
+}
+
+body.no-scroll {
+  overflow: hidden;
+  height: 100vh;
+}
+
+.carousel-text-overlay {
+  position: relative;
+  z-index: 2;
+  top: 80%; /* etwas unter die Mitte */
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  text-shadow: 0 0 8px rgba(0, 0, 0, 0.6);
+  padding: 1rem;
+  font-size: 2rem;
+  text-align: center;
+  transition: opacity 0.8s ease, transform 0.8s ease;
+  pointer-events: none;
+  background: none; /* Hintergrund weg */
+}
+
+.gradient-background {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 350px; /* Höhe nach Bedarf */
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.8) 30%, transparent);
+  z-index: 1;
+  pointer-events: none;
+}
+
+
+
+/* MODAL STYLE */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0; top: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.6);
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  background: #111;
+  color: white;
+  padding: 2rem;
+  border-radius: 8px;
+  max-width: 400px;
+  width: 90%;
+  position: relative;
+}
+
+.close-btn {
+  position: absolute;
+  top: 10px; right: 20px;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.modal-content input {
+  width: 100%;
+  padding: 0.8rem;
+  margin: 0.6rem 0;
+  border: none;
+  border-radius: 4px;
+  background: #333;
+  color: white;
+}
+
+.modal-buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1rem;
+}
+
+.primary-button {
+  background: red;
+  color: white;
+  border: none;
+  padding: 0.8rem 1.2rem;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.secondary-button {
+  background: white;
+  color: black;
+  border: none;
+  padding: 0.8rem 1.2rem;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.close-btn {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: white;
+}
+
+.feedback-message {
+  margin-top: 1rem;
+  font-weight: bold;
+  color: rgb(255, 0, 0);
+  text-align: center;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
