@@ -125,3 +125,8 @@ orderForm.addEventListener("submit", (e) => {
   orderFeedback.style.display = "block";
 });
 
+document.querySelectorAll('.usp-card').forEach(card => {
+    card.addEventListener('click', () => {
+      card.classList.toggle('flip');
+    });
+  });
