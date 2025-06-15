@@ -102,14 +102,17 @@ openBtn.addEventListener("click", () => {
   modal.style.display = "flex";
   orderFeedback.style.display = "none"; // reset feedback
   orderForm.reset(); // reset form
+  document.body.classList.add('no-scroll');
 });
 
 closeBtn.addEventListener("click", () => {
   modal.style.display = "none";
+  document.body.classList.remove('no-scroll');
 });
 
 cancelBtn.addEventListener("click", () => {
   modal.style.display = "none";
+  document.body.classList.remove('no-scroll');
 });
 
 window.addEventListener("click", (e) => {

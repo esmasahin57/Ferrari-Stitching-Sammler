@@ -31,6 +31,7 @@
       <li><a href="#scroll-section">ÄSTHETIK IM DETAIL</a></li>
       <li><a href="#leistung">LEISTUNG</a></li>
       <li><a href="#usp">EINZIGARTIGE VORTEILE</a></li>
+      <li><a href="#cta-button">JETZT BESTELLEN</a></li>
     </ul>
   </nav>
 
@@ -102,7 +103,7 @@
 </section>
 
   <!-- USP Section mit Flip Cards -->
-  <section class="usp-section section">
+  <section id="usp" class="usp-section section">
   <div class="section-inner">
     <h2>EINZIGARTIGE VORTEILE</h2><br>
     <div class="usp-grid">
@@ -151,7 +152,7 @@
 
     </div>
     <br><br><br>
-    <button class="cta-button">JETZT BESTELLEN</button>
+    <button id="cta-button" class="cta-button">JETZT BESTELLEN</button>
   </section>
 
   <!-- Footer -->
@@ -176,13 +177,16 @@
     <br>
       <input type="text" placeholder="Vor- und Nachname" required />
       <input type="email" placeholder="E-Mail-Adresse" required />
-      <input type="text" placeholder="Adresse" required />
+      <input type="text" placeholder="Straße" required />
+      <input type="text" placeholder="Stadt" required />
+      <input type="text" placeholder="Postleitzahl" required />
+      <input type="text" placeholder="Land" required />
       <input type="tel" placeholder="Telefonnummer (optional)" />
-      
+
       <div class="modal-buttons">
-        <button type="submit" class="primary-button">Bestätigen</button>
         <button type="button" class="secondary-button" id="cancelBtn">Abbrechen</button>
-      </div>
+        <button type="submit" class="primary-button">Bestätigen</button>
+    </div>
     </form>
 
     <div id="orderFeedback" class="feedback-message" style="display: none;">
