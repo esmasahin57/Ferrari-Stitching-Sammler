@@ -130,3 +130,80 @@ document.querySelectorAll('.usp-card').forEach(card => {
       card.classList.toggle('flip');
     });
   });
+
+  const lightbox = document.createElement('div');
+  lightbox.id = 'lightbox-overlay';
+  document.body.appendChild(lightbox);
+
+  const img = document.createElement('img');
+  lightbox.appendChild(img);
+
+  // Öffnen der Lightbox
+  function openLightbox(src) {
+    img.src = src;
+    lightbox.classList.add('active');
+    document.body.style.overflow = 'hidden'; // 🔒 Scroll sperren
+  }
+
+  // Schließen der Lightbox
+  function closeLightbox() {
+    lightbox.classList.remove('active', 'zoomed');
+  img.style.transform = 'scale(1)';
+  document.body.style.overflow = ''; // 🔓 Scroll wieder erlauben
+    setTimeout(() => {
+      img.src = '';
+    }, 300); // nach CSS transition
+  }
+
+  // Klickbare Bilder
+  document.querySelectorAll('.enlargeable').forEach((image) => {
+    image.addEventListener('click', () => {
+      const fullSrc = image.getAttribute('data-full');
+      openLightbox(fullSrc);
+    });
+  });
+
+  // Klick auf Overlay
+  lightbox.addEventListener('click', closeLightbox);
+
+  // ESC zum Schließen
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      closeLightbox();
+    }
+  });
+
+const heroContent = document.querySelector('.hero-content');
+
+const heroObserver = new IntersectionObserver(
+  ([entry]) => {
+    if (entry.isIntersecting) {
+      heroContent.classList.add('visible');
+    }
+  },
+  {
+    threshold: 0.3,
+  }
+);
+
+if (heroContent) {
+  heroObserver.observe(heroContent);
+}
+
+const sectionInners = document.querySelectorAll('.section-inner');
+
+const sectionObserver = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        sectionObserver.unobserve(entry.target); // nur einmal animieren
+      }
+    });
+  },
+  {
+    threshold: 0.3,
+  }
+);
+
+sectionInners.forEach((el) => sectionObserver.observe(el));
