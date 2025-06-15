@@ -51,6 +51,12 @@ img {
   z-index: 5;
 }
 
+@media (min-width: 1200px) {
+  .hero-logo {
+    display: none; /* Standardmäßig ausblenden */
+  }
+}
+
 .hero-image {
   position: absolute;
   top: 0; left: 0;
@@ -96,6 +102,31 @@ img {
   font-weight: 100;
   text-shadow: 0 0 8px rgba(0, 0, 0, 0.6);
 }
+
+@media (min-width: 768px) {
+  .hero-title {
+    font-size: 3.5rem;
+    margin-top: 20rem;
+  }
+
+  .hero-subtitle {
+    top: 30rem;
+    font-size: 1.3rem;
+  }
+}
+
+@media (min-width: 1200px) {
+  .hero-title {
+    font-size: 4.5rem;
+    margin-top: 15rem;
+  }
+
+  .hero-subtitle {
+    top: 26rem;
+    font-size: 1.5rem;
+  }
+}
+
 
 .hero-heading {
   font-family: 'Orbitron', sans-serif; /* oder jede gewünschte Schriftart */
@@ -179,14 +210,41 @@ img {
   align-items: center;
 }
 
+@media (min-width: 768px) {
+  .offcanvas-menu {
+    padding: 1rem;
+  }
+
+  .offcanvas-logo {
+    max-width: 120px; /* z. B. statt vorher 200px */
+    height: auto;
+  }
+
+  .offcanvas-menu ul li a {
+    font-size: 1.2rem; /* kleinere Schrift */
+    padding: 0.5rem 0; /* schmalerer Abstand */
+  }
+
+  .close-menu {
+    font-size: 1.2rem; /* kleineres Schließen-Symbol */
+  }
+}
+
+
+@media (min-width: 1200px) {
+  .menu-toggle,
+  .offcanvas-menu {
+    display: none;
+  }
+}
+
+
 .offcanvas-menu.open {
   right: 0;
 }
 
-.offcanvas-logo {
-  width: 25%;
-  margin-bottom: 1.5rem;
-}
+
+
 
 .offcanvas-menu ul {
   list-style: none;
@@ -250,6 +308,84 @@ img {
   pointer-events: none;
 }
 
+/* Desktop Navigation Styling */
+.desktop-nav {
+  display: none;
+}
+
+@media (min-width: 1200px) {
+  .desktop-nav {
+    display: flex;
+    width: 100%;
+    background-color: #111;
+    transition: transform 0.3s ease;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 999;
+  }
+
+  .nav-container {
+    display: flex;
+    align-items: center;
+    padding: 1rem 2rem;
+    width: 100%;
+  }
+
+  .nav-logo {
+    margin-right: 2rem;
+    flex-shrink: 0; /* verhindert, dass Logo schrumpft */
+  }
+
+  
+
+  .nav-logo img {
+    height: 45px;
+    width: auto;
+    display: block;
+  }
+
+  .nav-links {
+    display: flex;
+    justify-content: space-between; /* gleichmäßige Verteilung */
+    flex: 1; /* nimmt restlichen Platz ein */
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    gap: 2rem; /* gleichmäßiger Abstand */
+  }
+
+  .nav-links li {
+    white-space: nowrap;
+  }
+
+  .nav-links li a {
+    text-decoration: none;
+    color: white;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 0.8rem;
+    display: inline-block;
+    padding: 0.5rem 0;
+  }
+}
+
+
+  .nav-links li a:hover {
+    color: #ff0000;
+  }
+
+  /* Animation beim Scrollen */
+  .scroll-nav.hide {
+    transform: translateY(-100%);
+  }
+
+  .scroll-nav.show {
+    transform: translateY(0);
+  }
+
+
+
+
 
 /* Section Layout */
 .section {
@@ -264,20 +400,25 @@ img {
   margin-top: 1rem;
 }
 
+
+/* Mobile (Standard) */
 .section-content {
   display: flex;
   flex-direction: row;
   align-items: center;
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+  text-align: left;
+  flex-wrap: wrap;
+}
+
+.section-content.reverse {
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
   gap: 2rem;
   flex-wrap: wrap;
   margin-top: 1.5rem;
-}
-
-@media (min-width: 600px) {
-  .section-content {
-    flex-direction: column;
-    align-items: center;
-  }
 }
 
 .section-content.visible {
@@ -316,6 +457,27 @@ img {
   font-size: 1rem;
   line-height: 1.5;
 }
+
+@media (min-width: 768px) {
+  .section-content,
+  .section-content.reverse {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 2rem;
+  }
+
+  .section-content p {
+    font-size: 1.1rem;
+    max-width: 600px;
+    margin-bottom: 1rem;
+  }
+
+  .section-content img {
+    width: 30%;
+  }
+}
+
 
 .image-overlay {
   position: fixed;
@@ -372,6 +534,20 @@ img {
   grid-template-columns: 1fr;
   gap: 1rem;
 }
+
+@media (min-width: 768px) {
+  .grid-gallery {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1200px) {
+  .grid-gallery {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+
 .grid-gallery img {
   width: 100%;
   transition: opacity 1s ease-in-out;
@@ -394,16 +570,20 @@ img {
   flex-wrap: wrap; /* Falls mehr Karten, auf mehrere Reihen verteilen */
 }
 
-@media (min-width: 768px) {
+@media (min-width: 1200px) {
   .usp-grid {
+    display: grid;
     grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    justify-items: center;
   }
 }
+
 
 .usp-card {
   perspective: 1000px;
   width: 300px;
-  height: 120px;
+  height: 150px;
   cursor: pointer;
 }
 
@@ -473,6 +653,14 @@ img {
   transition: background 0.3s ease;
 }
 
+@media (min-width: 1200px) {
+  .cta-button {
+    font-size: 1.2rem;
+    padding: 1.2rem 2.5rem;
+  }
+}
+
+
 .cta-button:hover {
   background: #ff0000;
 }
@@ -481,7 +669,7 @@ img {
 /* Footer */
 .footer {
   font-family: 'Orbitron', sans-serif;
-  background: #3f3f3f;
+  background: #2b2b2b;
   color: white;
   padding: 2rem 1rem;
   text-align: center;
@@ -499,7 +687,45 @@ img {
   text-decoration: none;
 }
 .footer a:hover {
-  color: #ff0000;
+  text-decoration: underline;
+}
+
+@media (min-width: 786px) {
+  .footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap; /* Optional für kleinere Bildschirme */
+  padding: 1rem 2rem;
+  background-color: #2b2b2b;
+  color: white;
+  font-family: 'Orbitron', sans-serif;
+  font-size: 0.9rem;
+  }
+
+.footer ul {
+  list-style: none;
+  display: flex;
+  gap: 2rem; /* Abstand zwischen Links */
+  padding: 0;
+  margin: 0;
+  flex-wrap: wrap;
+}
+
+.footer li a {
+  text-decoration: none;
+  color: white;
+  white-space: nowrap;
+}
+
+.footer li a:hover {
+  text-decoration: underline;
+}
+
+.footer p {
+  margin: 0;
+  white-space: nowrap;
+}
 }
 
 .aesthetik-scroll-section {
@@ -560,7 +786,19 @@ body.no-scroll {
   pointer-events: none;
 }
 
+.section h2 {
+    text-align: center;
+  }
 
+.Leistung-Text {
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: center;
+    display: block;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+  }
 
 /* MODAL STYLE */
 .modal {
@@ -700,4 +938,20 @@ body.no-scroll {
 .lightbox-close:hover {
   background: rgba(255, 255, 255, 0.2);
   border-radius: 4px;
+}
+
+/* Standard: Mobile Logo anzeigen */
+.offcanvas-logo {
+  display: block;
+  width: 80%;
+  max-width: 120px; /* Begrenzung */
+  height: auto;
+  margin-bottom: 1.5rem;
+}
+
+/* Ab 1200px: Mobile Logo ausblenden */
+@media (min-width: 1200px) {
+  .offcanvas-logo {
+    display: none !important;
+  }
 }

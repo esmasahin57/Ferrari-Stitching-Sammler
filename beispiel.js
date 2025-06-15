@@ -12,6 +12,12 @@ document.getElementById("logo").addEventListener("click", function (e) {
     location.reload();
   });
 
+document.getElementById("logo-navigation").addEventListener("click", function (e) {
+    e.preventDefault();
+    window.scrollTo(0, 0);
+    location.reload();
+  });
+
 // Menü öffnen
 function openMenu() {
   offcanvas.classList.add('open');
@@ -210,3 +216,27 @@ const sectionObserver = new IntersectionObserver(
 );
 
 sectionInners.forEach((el) => sectionObserver.observe(el));
+
+let lastScrollTop = 0;
+  const nav = document.querySelector('.scroll-nav');
+
+  window.addEventListener('scroll', function () {
+    let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+    if (scrollTop < 100) {
+      nav.classList.remove('show', 'hide');
+      return;
+    }
+
+    if (scrollTop > lastScrollTop) {
+      // runter scrollen → verstecken
+      nav.classList.remove('show');
+      nav.classList.add('hide');
+    } else {
+      // hoch scrollen → anzeigen
+      nav.classList.remove('hide');
+      nav.classList.add('show');
+    }
+
+    lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
+  });
