@@ -91,17 +91,6 @@ img {
   transition: transform 0.1s ease-out;
 }
 
-.hero-subtitle {
-  position: absolute;
-  top: 38rem; /* oder je nach Wunsch anpassen */
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 2;
-  color: white;
-  font-size: 1rem;
-  font-weight: 100;
-  text-shadow: 0 0 8px rgba(0, 0, 0, 0.6);
-}
 
 @media (min-width: 768px) {
   .hero-title {
