@@ -50,7 +50,7 @@ menuLinks.forEach(link => {
 });
 
 // Hero-Bilder wechseln
-const heroImages = document.querySelectorAll('.hero-image');
+/*const heroImages = document.querySelectorAll('.hero-image');
 let currentIndex = 0;
 
 function showNextHeroImage() {
@@ -62,7 +62,7 @@ function showNextHeroImage() {
 if (heroImages.length > 0) {
   heroImages[0].classList.add('active');
   setInterval(showNextHeroImage, 3000);
-}
+} */
 
 document.addEventListener("DOMContentLoaded", () => {
   const images = document.querySelectorAll(".carousel-image");
@@ -95,20 +95,28 @@ window.addEventListener('scroll', () => {
   }
 });
 
-// MODAL LOGIK
 const modal = document.getElementById("buyModal");
 const openBtn = document.querySelector(".cta-button");
 const closeBtn = document.querySelector(".close-btn");
-const secondaryButton = document.querySelector(".secondary-button");
 const cancelBtn = document.getElementById("cancelBtn");
 const orderForm = document.getElementById("orderForm");
 const orderFeedback = document.getElementById("orderFeedback");
 
+let orderCompleted = false; // Status der Bestellung
+
 openBtn.addEventListener("click", () => {
   modal.style.display = "flex";
-  orderFeedback.style.display = "none"; // reset feedback
-  orderForm.reset(); // reset form
   document.body.classList.add('no-scroll');
+  
+  if (!orderCompleted) {
+    orderFeedback.style.display = "none"; // Feedback ausblenden
+    orderForm.style.display = "block";    // Formular anzeigen
+    orderForm.reset();                     // Formular zurücksetzen
+  } else {
+    // Bestellung abgeschlossen: Feedback anzeigen, Formular ausblenden
+    orderFeedback.style.display = "block";
+    orderForm.style.display = "none";
+  }
 });
 
 closeBtn.addEventListener("click", () => {
@@ -124,21 +132,24 @@ cancelBtn.addEventListener("click", () => {
 window.addEventListener("click", (e) => {
   if (e.target === modal) {
     modal.style.display = "none";
+    document.body.classList.remove('no-scroll');
   }
 });
 
-// Bei Absenden des Formulars Feedback zeigen
 orderForm.addEventListener("submit", (e) => {
   e.preventDefault();
   orderForm.style.display = "none";
   orderFeedback.style.display = "block";
+  orderCompleted = true; // Status auf abgeschlossen setzen
 });
+
 
 document.querySelectorAll('.usp-card').forEach(card => {
     card.addEventListener('click', () => {
       card.classList.toggle('flip');
     });
   });
+
 
   const lightbox = document.createElement('div');
   lightbox.id = 'lightbox-overlay';
