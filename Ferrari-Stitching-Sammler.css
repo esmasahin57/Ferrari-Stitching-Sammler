@@ -421,7 +421,7 @@ img {
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  text-align: left;
+  text-align: center;
   gap: 1rem;
   padding: 0 1rem;
 }
