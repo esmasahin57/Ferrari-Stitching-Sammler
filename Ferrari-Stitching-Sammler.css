@@ -422,7 +422,7 @@ img {
   gap: 1.5rem;
   margin-top: 1.5rem;
   text-align: left;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
 }
 
 .section-content.reverse {
@@ -460,7 +460,7 @@ img {
 
 
 .section-content img {
-  width: 45%;
+  width: 40%;
   height: auto;
   max-width: 100%;
   border-radius: 3px;
@@ -709,6 +709,7 @@ img {
   margin: 0;
   white-space: nowrap;
   font-size: 0.9rem;
+  font-weight: normal;
 }
 
 
@@ -718,7 +719,7 @@ img {
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap; /* Optional für kleinere Bildschirme */
-  padding: 1rem 2rem;
+  padding: 0.5rem 2rem;
   background-color: #2b2b2b;
   color: white;
   font-family: 'Orbitron', sans-serif;
@@ -900,6 +901,34 @@ body.no-scroll {
   color: rgb(255, 0, 0);
   text-align: center;
 }
+
+@media (min-width: 1200px) {
+  .modal-content {
+    max-width: 600px;
+    padding: 3rem;
+    font-size: 1.1rem;
+  }
+
+  .modal-content input {
+    padding: 1rem;
+    font-size: 0.8rem;
+  }
+
+  .primary-button,
+  .secondary-button {
+    padding: 1rem 1.5rem;
+    font-size: 1rem;
+  }
+
+  .close-btn {
+    font-size: 2rem;
+  }
+
+  .feedback-message {
+    font-size: 1.1rem;
+  }
+}
+
 
 @keyframes fadeIn {
   from { opacity: 0; transform: scale(0.95); }
