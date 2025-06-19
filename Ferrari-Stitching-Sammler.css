@@ -476,7 +476,7 @@ img {
 
 @media (min-width: 600px) {
   .section-content p {
-    padding: 1rem;
+    padding-left: 1.5rem;
   }
 }
 
