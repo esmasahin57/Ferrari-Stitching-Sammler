@@ -10,7 +10,7 @@ body {
   margin: 0;
   font-family: 'Open Sans', sans-serif;
   letter-spacing: 0.05em;
-  font-size: 1rem;
+  font-size: 1.1rem;
   line-height: 1.6;
 }
 
@@ -21,7 +21,7 @@ h1, h2, h3, .offcanvas-menu, .card-front {
 }
 
 p {
-  font-weight: normal;
+  font-weight: 400;
 }
 
 img {
@@ -172,25 +172,31 @@ img {
   background: none;
   border: none;
   color: white;
-  font-size: 2rem;
+  font-size: 2.5rem;
   cursor: pointer;
   transition: transform 0.3s ease;
   text-shadow: 0 0 5px rgba(0,0,0,0.5);
 }
 
 .close-menu {
+  font-size: 4rem;           /* Vergrößert das ✕-Zeichen */
+  width: 70px;               /* Größere Klickfläche */
+  height: 70px;
+  display: flex;             /* Zentriert das Symbol */
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  background: none;
+  border: none;
+  cursor: pointer;
   position: fixed;
   top: 1.5rem;
   right: 1.5rem;
   z-index: 1001;
-  background: none;
-  border: none;
   color: white;
-  font-size: 2rem;
-  cursor: pointer;
-  transition: transform 0.3s ease;
-  text-shadow: 0 0 5px rgba(0,0,0,0.5);
+  text-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
 }
+
 
 /* Offcanvas Menü */
 .offcanvas-menu {
@@ -225,7 +231,7 @@ img {
   }
 
   .close-menu {
-    font-size: 1.2rem; /* kleineres Schließen-Symbol */
+    font-size: 2rem; /* kleineres Schließen-Symbol */
   }
 }
 
@@ -253,12 +259,12 @@ img {
 }
 
 .offcanvas-menu li {
-  margin: 1.5rem 0;
+  margin: 1rem 0;
 }
 .offcanvas-menu a {
   color: white;
   text-decoration: none;
-  font-size: 1.2rem;
+  font-size: 1.3rem;
 }
 
 .offcanvas-menu a:hover {
@@ -327,7 +333,7 @@ img {
   .nav-container {
     display: flex;
     align-items: center;
-    padding: 1rem 2rem;
+    padding: 0.5rem 2rem;
     width: 100%;
   }
 
@@ -346,8 +352,8 @@ img {
 
   .nav-links {
     display: flex;
-    justify-content: space-between; /* gleichmäßige Verteilung */
-    flex: 1; /* nimmt restlichen Platz ein */
+    /*justify-content: space-between; /* gleichmäßige Verteilung */
+    /*flex: 1; /* nimmt restlichen Platz ein */
     list-style: none;
     margin: 0;
     padding: 0;
@@ -362,12 +368,22 @@ img {
     text-decoration: none;
     color: white;
     font-family: 'Orbitron', sans-serif;
-    font-size: 0.8rem;
+    font-size: 5vw;
+    font-size: 2vh;
     display: inline-block;
     padding: 0.5rem 0;
   }
 }
 
+
+  .nav-links li a {
+    text-decoration: none;
+    color: white;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 0.75rem;
+    padding: 0.5rem 0.2rem;
+    transition: color 0.3s ease;
+  }
 
   .nav-links li a:hover {
     color: #ff0000;
