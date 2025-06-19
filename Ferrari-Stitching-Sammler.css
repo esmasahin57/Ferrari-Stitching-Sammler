@@ -470,7 +470,7 @@ img {
   line-height: 1.5;
   padding: 1rem;
   box-sizing: border-box;
-  max-width: 80%;
+  max-width: 50%;
 }
 
 @media (min-width: 768px) {
