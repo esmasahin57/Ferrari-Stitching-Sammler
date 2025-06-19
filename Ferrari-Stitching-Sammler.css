@@ -401,7 +401,7 @@ img {
 
 /* Section Layout */
 .section {
-  padding: 2rem 5vw;
+  padding: 1rem 1rem;
   max-width: 1600px;
   margin: 0 auto;
   hyphens: auto;
