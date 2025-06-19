@@ -429,9 +429,10 @@ img {
   display: flex;
   flex-direction: row-reverse;
   align-items: center;
-  gap: 2rem;
-  flex-wrap: wrap;
+  gap: 1.5rem;
+  flex-wrap: nowrap;
   margin-top: 1.5rem;
+  text-align: left;
 }
 
 .section-content.visible {
