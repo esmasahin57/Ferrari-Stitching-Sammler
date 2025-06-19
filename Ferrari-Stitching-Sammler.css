@@ -422,7 +422,7 @@ img {
   gap: 1.5rem;
   margin-top: 1.5rem;
   text-align: left;
-  flex-wrap: nowrap;
+  flex-wrap: wrap;
 }
 
 .section-content.reverse {
@@ -430,7 +430,7 @@ img {
   flex-direction: row-reverse;
   align-items: center;
   gap: 1.5rem;
-  flex-wrap: nowrap;
+  flex-wrap: wrap;
   margin-top: 1.5rem;
   text-align: left;
 }
@@ -470,15 +470,11 @@ img {
   flex: 1;
   font-size: 1rem;
   line-height: 1.5;
-  padding-left: 1rem;
-  padding-right: 1rem;
+  padding: 1rem;
+  min-width: 200px;
+  box-sizing: border-box;
 }
 
-@media (min-width: 600px) {
-  .section-content p {
-    padding-left: 1.5rem;
-  }
-}
 
 @media (min-width: 768px) {
   .section-content,
