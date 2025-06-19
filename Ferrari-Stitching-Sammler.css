@@ -470,13 +470,13 @@ img {
   flex: 1;
   font-size: 1rem;
   line-height: 1.5;
-  padding-left: 0rem;
+  padding-left: 1rem;
   padding-right: 1rem;
 }
 
 @media (min-width: 600px) {
   .section-content p {
-    padding: 2rem;
+    padding: 1rem;
   }
 }
 
