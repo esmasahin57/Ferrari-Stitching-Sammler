@@ -424,7 +424,6 @@ img {
   text-align: left;
   gap: 1rem;
   padding: 0 1rem;
-  flex-wrap: nowrap;
 }
 
 .section-content.reverse {
