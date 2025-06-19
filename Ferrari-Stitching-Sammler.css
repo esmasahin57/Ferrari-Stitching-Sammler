@@ -415,23 +415,20 @@ img {
 
 
 /* Mobile (Standard) */
-.section-content {
+.section-content,
+.section-content.reverse {
   display: flex;
   flex-direction: row;
   align-items: center;
-  gap: 1.5rem;
-  margin-top: 1.5rem;
+  justify-content: center;
   text-align: left;
+  gap: 1rem;
+  padding: 0 1rem;
   flex-wrap: nowrap;
 }
 
 .section-content.reverse {
-  display: flex;
   flex-direction: row-reverse;
-  align-items: center;
-  gap: 2rem;
-  flex-wrap: nowrap;
-  margin-top: 1.5rem;
 }
 
 .section-content.visible {
@@ -458,17 +455,22 @@ img {
 }
 
 
+/* Bildgröße */
 .section-content img {
-  width: 45%;
+  width: 50%;
   height: auto;
   max-width: 100%;
   border-radius: 3px;
 }
 
+/* Textseite */
 .section-content p {
   flex: 1;
   font-size: 1rem;
   line-height: 1.5;
+  padding: 0 1rem;
+  box-sizing: border-box;
+  max-width: 100%;
 }
 
 @media (min-width: 768px) {
