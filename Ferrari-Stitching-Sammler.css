@@ -12,6 +12,7 @@ body {
   letter-spacing: 0.05em;
   font-size: 1.1rem;
   line-height: 1.6;
+  hyphens: manual;
 }
 
 h1, h2, h3, .offcanvas-menu, .card-front {
@@ -684,7 +685,7 @@ img {
   font-family: 'Orbitron', sans-serif;
   background: #2b2b2b;
   color: white;
-  padding: 1.5rem 1rem;
+  padding: 1rem 1rem;
   text-align: center;
 }
 .footer ul {
