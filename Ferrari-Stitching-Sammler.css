@@ -470,7 +470,8 @@ img {
   flex: 1;
   font-size: 1rem;
   line-height: 1.5;
-  padding: 0 1rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
 }
 
 @media (min-width: 768px) {
