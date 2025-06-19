@@ -430,7 +430,7 @@ img {
   flex-direction: row-reverse;
   align-items: center;
   gap: 2rem;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   margin-top: 1.5rem;
 }
 
