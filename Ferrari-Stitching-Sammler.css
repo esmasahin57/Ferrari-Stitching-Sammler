@@ -415,24 +415,17 @@ img {
 
 
 /* Mobile (Standard) */
-.section-content {
+.section-content,
+.section-content.reverse {
   display: flex;
   flex-direction: row;
+  flex-wrap: nowrap;        /* ← zwingt Bild & Text nebeneinander */
   align-items: center;
-  gap: 1.5rem;
-  margin-top: 1.5rem;
-  text-align: left;
-  flex-wrap: wrap;
+  gap: 1rem;
 }
 
 .section-content.reverse {
-  display: flex;
   flex-direction: row-reverse;
-  align-items: center;
-  gap: 1.5rem;
-  flex-wrap: wrap;
-  margin-top: 1.5rem;
-  text-align: left;
 }
 
 .section-content.visible {
@@ -467,11 +460,10 @@ img {
 }
 
 .section-content p {
-  flex: 1;
+  width: 55%;               /* Text nimmt den Rest ein */
   font-size: 1rem;
   line-height: 1.5;
-  padding: 1rem;
-  min-width: 200px;
+  padding: 0 0.5rem;        /* leichter Rand innen */
   box-sizing: border-box;
 }
 
