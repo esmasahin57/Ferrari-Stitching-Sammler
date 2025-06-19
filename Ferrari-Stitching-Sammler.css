@@ -456,7 +456,7 @@ img {
 
 /* Bildgröße */
 .section-content img {
-  width: 50%;
+  width: 45%;
   height: auto;
   max-width: 100%;
   border-radius: 3px;
@@ -469,7 +469,7 @@ img {
   line-height: 1.5;
   padding: 0 1rem;
   box-sizing: border-box;
-  max-width: 100%;
+  max-width: 50%;
 }
 
 @media (min-width: 768px) {
