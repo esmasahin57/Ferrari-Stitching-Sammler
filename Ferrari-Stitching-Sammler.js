@@ -43,6 +43,20 @@ document.querySelectorAll('.offcanvas-menu a').forEach(link => {
   link.addEventListener('click', closeOffcanvas);
 });
 
+window.addEventListener('resize', () => {
+  if (window.innerWidth >= 768) {
+    // Auf größeren Bildschirmen: Icon ausblenden (CSS übernimmt das)
+    menuToggle.style.display = '';
+    menuToggle.setAttribute('aria-expanded', 'false');
+    
+    // Menü vollständig schließen
+    offcanvas.classList.remove('open');
+    overlay.classList.remove('active');
+    document.body.classList.remove('no-scroll');
+  }
+});
+
+
 // Schließe Menü beim Klick auf Link
 const menuLinks = document.querySelectorAll('.offcanvas-menu a');
 menuLinks.forEach(link => {
